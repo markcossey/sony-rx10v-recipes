@@ -16,6 +16,11 @@ wants good photographs without reading a 400-page manual.
   each one is the right choice
 - **Reference tables** — aperture as you zoom, hand-holdable shutter speeds, how far ISO goes
 - **If the photo came out wrong** — symptom, cause, fix
+- **Where everything is** — labelled diagrams of the back of the camera and the lens barrel,
+  keyed to a numbered list of all sixteen controls the guide refers to
+
+Charts and diagrams are hand-written inline SVG, themed in light and dark. The chart palette
+was validated for colour-blind separation and contrast against this page's own surfaces.
 
 Every menu name is written exactly as it appears on the camera, checked against Sony's
 official Help Guide for this model.
