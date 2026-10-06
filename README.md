@@ -10,6 +10,8 @@ wants good photographs without reading a 400-page manual.
 - **Set up once** — the dozen settings worth changing on day one, then leaving alone
 - **Ten recipes** — birds in flight, grandkids indoors, sport, landscapes, sunsets, the moon,
   close-ups, video, and a sensible everyday default
+- **Small birds in the distance** — the camera's hardest focusing job, and the four buried
+  settings that bear on it
 - **Two shutters** — why mechanical and electronic behave like different cameras, and when
   each one is the right choice
 - **Reference tables** — aperture as you zoom, hand-holdable shutter speeds, how far ISO goes
