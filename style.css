@@ -437,3 +437,41 @@ a:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* ── Deep-dive section: standalone dial strip ── */
+
+dl.dials.wide {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 1rem 0 .4rem;
+  max-width: 54rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+@media (min-width: 34rem) { dl.dials.wide { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 52rem) { dl.dials.wide { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+.deepdive > p { color: var(--ink-soft); }
+.deepdive .tablewrap { max-width: 54rem; }
+.deepdive table tbody th[scope="row"] {
+  white-space: normal;
+  font-family: var(--mono);
+  font-size: .88rem;
+  font-weight: 500;
+  min-width: 11rem;
+}
+.deepdive table tbody td:first-of-type { font-family: var(--mono); font-size: .9rem; }
+
+/* ── Inline links in prose ──────────────────── */
+
+.why a, .block > p a, .note a, .fixes a {
+  color: var(--accent-ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+.why a:hover, .block > p a:hover, .note a:hover, .fixes a:hover {
+  text-decoration-color: var(--accent);
+}
