@@ -1,0 +1,439 @@
+/* ─────────────────────────────────────────────
+   Sony RX10 V — Photo Recipes
+   Designed to be read on a phone, next to a camera,
+   by someone who does not want to read a manual.
+   ───────────────────────────────────────────── */
+
+:root {
+  --paper:      #f7f4ef;
+  --surface:    #ffffff;
+  --surface-2:  #f1ece4;
+  --ink:        #1d1a16;
+  --ink-soft:   #4b443c;
+  --muted:      #716859;
+  --rule:       #e2dace;
+  --rule-soft:  #ece6dc;
+  --accent:     #9c5f1b;
+  --accent-ink: #7d4a12;
+  --flag:       #8a4b12;
+  --flag-bg:    #fbf0e2;
+
+  --measure: 34rem;
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(40,30,15,.05), 0 6px 18px -10px rgba(40,30,15,.14);
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:      #16140f;
+    --surface:    #1e1b16;
+    --surface-2:  #262118;
+    --ink:        #f2ece1;
+    --ink-soft:   #d6cdbe;
+    --muted:      #a29685;
+    --rule:       #342d22;
+    --rule-soft:  #2a241b;
+    --accent:     #e0a455;
+    --accent-ink: #edb96f;
+    --flag:       #e8a95c;
+    --flag-bg:    #2e2416;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 20px -12px rgba(0,0,0,.6);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 17px/1.62 var(--sans);
+  letter-spacing: .003em;
+  -webkit-font-smoothing: antialiased;
+}
+@media (min-width: 60rem) { body { font-size: 18px; } }
+
+.wrap {
+  width: 100%;
+  max-width: 62rem;
+  margin: 0 auto;
+  padding-inline: 20px;
+}
+@media (min-width: 48rem) { .wrap { padding-inline: 32px; } }
+
+/* ── Masthead ───────────────────────────────── */
+
+.masthead {
+  padding-block: 3.4rem 2.6rem;
+  background: linear-gradient(180deg, var(--surface-2), var(--paper));
+  border-bottom: 1px solid var(--rule);
+}
+.kicker {
+  margin: 0 0 .9rem;
+  font: 600 .72rem/1 var(--mono);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.masthead h1 {
+  margin: 0;
+  font: 400 clamp(2.4rem, 9vw, 3.9rem)/1.02 var(--serif);
+  letter-spacing: -.02em;
+}
+.standfirst {
+  margin: 1.1rem 0 0;
+  max-width: var(--measure);
+  font-size: 1.14rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.standfirst-sub {
+  margin: .5rem 0 0;
+  max-width: var(--measure);
+  font-size: .95rem;
+  color: var(--muted);
+}
+
+/* ── Sticky quick nav ───────────────────────── */
+
+.quicknav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--paper);
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: saturate(1.6) blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+.quicknav .wrap { padding-inline: 0; }
+.quicknav ul {
+  display: flex;
+  gap: .4rem;
+  margin: 0;
+  padding: .6rem 20px;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.quicknav ul::-webkit-scrollbar { display: none; }
+@media (min-width: 48rem) {
+  .quicknav ul { padding-inline: 32px; flex-wrap: wrap; overflow: visible; }
+}
+.quicknav a {
+  display: block;
+  white-space: nowrap;
+  padding: .36rem .7rem;
+  border-radius: 100px;
+  font-size: .86rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+.quicknav a:hover,
+.quicknav a:focus-visible {
+  background: var(--surface);
+  border-color: var(--rule);
+  color: var(--accent-ink);
+}
+
+/* ── Blocks ─────────────────────────────────── */
+
+main { padding-bottom: 1rem; }
+
+.block {
+  padding-block: 3.2rem;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.block:last-of-type { border-bottom: 0; }
+
+.block > h2 {
+  margin: 0 0 .7rem;
+  font: 400 clamp(1.6rem, 4.6vw, 2.3rem)/1.15 var(--serif);
+  letter-spacing: -.012em;
+  scroll-margin-top: 4.5rem;
+}
+.block h3 {
+  margin: 2.2rem 0 .5rem;
+  font: 600 1.06rem/1.35 var(--sans);
+  letter-spacing: .004em;
+}
+.lede {
+  margin: 0 0 1.8rem;
+  max-width: var(--measure);
+  color: var(--ink-soft);
+}
+.block p { max-width: var(--measure); }
+
+/* ── Setup list ─────────────────────────────── */
+
+ol.setup {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: s;
+  display: grid;
+  gap: .1rem;
+}
+ol.setup li {
+  counter-increment: s;
+  position: relative;
+  padding: .95rem 0 .95rem 3rem;
+  max-width: calc(var(--measure) + 3rem);
+  border-top: 1px solid var(--rule-soft);
+  color: var(--ink-soft);
+}
+ol.setup li:first-child { border-top: 0; }
+ol.setup li::before {
+  content: counter(s, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 1.05rem;
+  font: 500 .78rem/1 var(--mono);
+  color: var(--accent);
+  letter-spacing: .04em;
+}
+ol.setup strong { color: var(--ink); font-weight: 600; }
+
+.val {
+  font: 500 .92em/1 var(--mono);
+  padding: .14em .42em;
+  border-radius: 4px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  white-space: nowrap;
+  color: var(--ink);
+}
+
+/* ── Notes ──────────────────────────────────── */
+
+.note {
+  margin: 2.2rem 0 0;
+  max-width: calc(var(--measure) + 2rem);
+  padding: 1.25rem 1.4rem;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.note h3 { margin: 0 0 .5rem; font-size: 1rem; }
+.note p, .note li { color: var(--ink-soft); }
+.note p:last-child { margin-bottom: 0; }
+.note ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .6rem; }
+.note.habit { border-left-color: var(--flag); }
+
+/* ── Recipe cards ───────────────────────────── */
+
+.recipes {
+  display: grid;
+  gap: 1.1rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 54rem) {
+  .recipes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.3rem; }
+}
+
+.recipe {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  scroll-margin-top: 4.5rem;
+}
+.recipe > header {
+  padding: 1.3rem 1.4rem 1.1rem;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.recipe .num {
+  margin: 0 0 .5rem;
+  font: 500 .76rem/1 var(--mono);
+  letter-spacing: .1em;
+  color: var(--accent);
+}
+.recipe h3 {
+  margin: 0;
+  font: 400 1.42rem/1.2 var(--serif);
+  letter-spacing: -.01em;
+}
+.recipe .sub {
+  margin: .5rem 0 0;
+  max-width: none;
+  font-size: .94rem;
+  line-height: 1.48;
+  color: var(--muted);
+}
+
+/* dial strip */
+dl.dials {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  background: var(--rule-soft);
+  border-bottom: 1px solid var(--rule-soft);
+}
+@media (min-width: 30rem) {
+  dl.dials { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+dl.dials > div {
+  padding: .7rem .9rem .75rem;
+  background: var(--surface-2);
+}
+dl.dials dt {
+  font: 500 .67rem/1.2 var(--sans);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+dl.dials dd {
+  margin: .22rem 0 0;
+  font: 500 .97rem/1.25 var(--mono);
+  color: var(--ink);
+  overflow-wrap: break-word;
+}
+dl.dials > div.flag {
+  background: var(--flag-bg);
+  box-shadow: inset 2px 0 0 var(--flag);
+}
+dl.dials > div.flag dd { color: var(--flag); }
+
+.why {
+  padding: 1.2rem 1.4rem 1.35rem;
+}
+.why p {
+  margin: 0 0 .85rem;
+  max-width: none;
+  font-size: .97rem;
+  line-height: 1.58;
+  color: var(--ink-soft);
+}
+.why p:last-child { margin-bottom: 0; }
+.why strong { color: var(--ink); font-weight: 600; }
+.why .watch {
+  padding-left: .85rem;
+  border-left: 2px solid var(--rule);
+}
+.why .watch strong { color: var(--accent-ink); }
+
+/* ── Tables ─────────────────────────────────── */
+
+.tablewrap {
+  overflow-x: auto;
+  margin: 1rem 0 .6rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .95rem;
+}
+th, td {
+  padding: .72rem .9rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--rule-soft);
+}
+thead th {
+  font: 600 .7rem/1.3 var(--sans);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--surface-2);
+  white-space: nowrap;
+}
+tbody th[scope="row"] {
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+}
+tbody tr:last-child th,
+tbody tr:last-child td { border-bottom: 0; }
+tbody td:first-child { font-family: var(--mono); font-size: .9rem; white-space: nowrap; }
+tbody th[scope="row"] + td { font-family: var(--sans); }
+td, tbody th { color: var(--ink-soft); }
+
+.smallprint {
+  margin: .5rem 0 0;
+  font-size: .87rem;
+  line-height: 1.52;
+  color: var(--muted);
+}
+
+/* ── Fixes ──────────────────────────────────── */
+
+dl.fixes {
+  margin: 0;
+  max-width: calc(var(--measure) + 4rem);
+}
+dl.fixes dt {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule-soft);
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--ink);
+}
+dl.fixes dt:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+dl.fixes dd {
+  margin: .4rem 0 0;
+  color: var(--ink-soft);
+}
+dl.fixes strong {
+  font-family: var(--mono);
+  font-size: .93em;
+  font-weight: 500;
+  color: var(--accent-ink);
+}
+
+/* ── Footer ─────────────────────────────────── */
+
+.siteend {
+  margin-top: 1rem;
+  padding-block: 2.4rem 3.2rem;
+  border-top: 1px solid var(--rule);
+  background: var(--surface-2);
+}
+.siteend .wrap { padding-inline: 0; }
+.siteend p {
+  max-width: 48rem;
+  font-size: .92rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.siteend strong { color: var(--ink-soft); }
+
+/* ── Focus visibility ───────────────────────── */
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* ── Print: he may well print this ──────────── */
+
+@media print {
+  :root { --paper: #fff; --surface: #fff; --surface-2: #f6f6f6; --ink: #000; --ink-soft: #222; --muted: #555; --rule: #bbb; --rule-soft: #ddd; --shadow: none; }
+  body { font-size: 10.5pt; }
+  .quicknav { display: none; }
+  .masthead { padding-block: 0 1rem; background: none; }
+  .block { padding-block: 1.2rem; page-break-inside: auto; }
+  .recipe, .note, .tablewrap { page-break-inside: avoid; break-inside: avoid; box-shadow: none; }
+  .recipes { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
